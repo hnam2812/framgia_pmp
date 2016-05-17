@@ -48,6 +48,9 @@ function initGrid(){
     success: function(data) {
       myGrid.parse(data, "json");
       project_name = data.project_name
+      var newID = myGrid.uid();
+      myGrid.addRow(newID,",,,,,," + project_name);
+      myGrid.selectCell(myGrid.getRowIndex(newID),0,false,false,true);
     },
     error: function(msg) {
     }

@@ -29,7 +29,8 @@ Rails.application.routes.draw do
   resources :users, except: [:new, :create]
   namespace :api, defaults: {format: "json"} do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
-      resources :product_backlogs
+      resources :product_backlogs, only: [:index]
+      resources :burndown_charts, only: [:show]
     end
   end
   resources :invite_users

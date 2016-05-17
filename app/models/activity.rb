@@ -5,6 +5,8 @@ class Activity < ActiveRecord::Base
   
   has_one :work_performance
 
+  has_many :log_works
+
   delegate :plan, :actual, to: :work_performance, prefix: true, allow_nil: true
   delegate :name, to: :user, prefix: true, allow_nil: true
 end

@@ -26,3 +26,7 @@
   </div>
   <p><%= @sprint.description %></p>
 </div>
+<div class="row">
+  <div class="col-md-12 col-md-offset-3" id="burndown_chart" data-chart-data=
+    "<%= api_burndown_chart_path @sprint.id%>"></div>
+</div>

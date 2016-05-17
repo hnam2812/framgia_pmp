@@ -44,6 +44,8 @@
 //= require dhtmlxgrid
 //= require dhtmlxgridcell
 //= require dhtmlxdataprocessor
+//= require highcharts
+//= require set_hight_chart
 
 $(document).on("page:change", function(){
   $(".datepicker").datepicker({
