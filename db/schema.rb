@@ -59,11 +59,14 @@ ActiveRecord::Schema.define(version: 20160518032925) do
   add_index "headers", ["sheet_id"], name: "index_headers_on_sheet_id", using: :btree
 
   create_table "log_works", force: :cascade do |t|
+    t.integer  "activity_id",    limit: 4
     t.integer  "remaining_time", limit: 4
-    t.date     "day"
+    t.integer  "day",            limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
+
+  add_index "log_works", ["activity_id"], name: "index_log_works_on_activity_id", using: :btree
 
   create_table "phases", force: :cascade do |t|
     t.string   "phase_name",  limit: 255
@@ -132,7 +135,7 @@ ActiveRecord::Schema.define(version: 20160518032925) do
   create_table "time_logs", force: :cascade do |t|
     t.integer  "assignee_id", limit: 4
     t.integer  "sprint_id",   limit: 4
-    t.date     "work_date"
+    t.integer  "work_date",   limit: 4
     t.integer  "lost_hour",   limit: 4
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
@@ -186,6 +189,7 @@ ActiveRecord::Schema.define(version: 20160518032925) do
 
   add_foreign_key "cells", "sheets"
   add_foreign_key "headers", "sheets"
+  add_foreign_key "log_works", "activities"
   add_foreign_key "sheets", "users"
   add_foreign_key "triggers", "sheets"
 end

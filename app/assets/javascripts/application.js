@@ -44,6 +44,7 @@
 //= require dhtmlxgrid
 //= require dhtmlxgridcell
 //= require dhtmlxdataprocessor
+//= require log_times
 
 $(document).on("page:change", function(){
   $(".datepicker").datepicker({
